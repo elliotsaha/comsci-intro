@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.root {
+    position: absolute;
+    z-index: 2;
+    font-family: Gilroy, sans-serif;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+.mainTitle {
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+.subTitle {
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    padding-bottom: 1rem;
+    font-weight: bold;
+}
+.learnMore {
+    font-size: 1.4rem;
+}
+.hr {
+    width: 18rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.quote {
+    font-size: 1.1rem;
+    font-style: italic;
+}
+.author {
+    margin-top: 1rem;
+}
+.lightbulbImage {
+    width: 5rem;
+}

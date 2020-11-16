@@ -1,0 +1,23 @@
+body {
+    background-image: url("sandpaper-background-16955445.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+.inner {
+    background-color: white;
+    max-width: 20rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+
+}
