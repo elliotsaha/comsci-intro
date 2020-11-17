@@ -1,4 +1,4 @@
-function onSubmit(e) {
+function onSubmit() {
   // Inputs
   const q1 = document.getElementById("question1")
   const q2 = document.getElementById("question2")

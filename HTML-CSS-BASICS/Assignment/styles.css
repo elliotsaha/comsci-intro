@@ -21,6 +21,7 @@ button {
     font-weight: bold;
     font-size: 0.9rem;
 }
+
 button:hover {
     cursor: pointer;
 }
@@ -91,14 +92,17 @@ select, textarea, button {
     background-color:  #2a74ec;
     transition: all ease 0.4s;
 }
+
 #reloadForm {
     transition: all ease 0.4s;
     background-color: rgb(233, 222, 222)
 }
+
 #reloadForm:hover {
     transition: all ease 0.4s;
     background-color: rgb(177, 175, 175)
 }
+
 #hrefContainer {
     display: flex;
     justify-content: center;
