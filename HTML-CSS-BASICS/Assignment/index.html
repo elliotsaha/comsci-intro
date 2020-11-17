@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Computer Science Quiz</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css"
+  ></link>
   </head>
   <body>
     <div id="quizContainer">
       <h1 id="mainTitle">Computer Science Quiz</h1>
-      <hr />
+      <hr/>
       <form id="form">
         <div class="questionContainer">
           <h2 class="questionTitle">Question 1</h2>
-          <div id="errorHandlingQ1"></div>
           <!--Answer is Machine Code-->
           <p class="questionParagraph">
             What is the only type of code that computers can understand?
@@ -32,6 +35,7 @@
         <hr />
         <div class="questionContainer">
           <h2 class="questionTitle">Question 3</h2>
+          <div id="errorHandlingQ3"></div>
           <!--Answer is ILP32-->
           <p class="questionParagraph">
             What data model is used by 32-bit *nix and windows systems?
@@ -48,6 +52,7 @@
         <hr />
         <div class="questionContainer">
           <h2 class="questionTitle">Question 5</h2>
+          <img src="lodash.png" alt="lodash" id="lodashImage"/>
           <!--Answer is Lodash-->
           <p class="questionParagraph">
             What is the name of the JavaScript library created by John-David
@@ -56,11 +61,17 @@
           </p>
           <input name="Type Answer here" id="question5" />
         </div>
-        <div class="buttonContanier">
+        <div id="buttonContanier">
           <button type="button" id="submitForm" onclick="onSubmit()">
-            Submit Form
+            Mark Quiz
           </button>
-          <button type="submit" id="reloadForm">Retry Form</button>
+          <button type="submit" id="reloadForm">Retry Quiz</button>
+        </div>
+        <div id="markContainer">
+          <div id="mark"></div>
+        </div>
+        <div id="hrefContainer">
+          <a href="https://en.wikipedia.org/wiki/Data_model" target=_blank rel="noopener">Click Here To Learn More About Data Models</a>
         </div>
       </form>
     </div>

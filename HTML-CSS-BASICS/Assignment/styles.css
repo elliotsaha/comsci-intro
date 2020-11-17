@@ -1,0 +1,114 @@
+body {
+    background-image: url("image.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    font-family: Gilroy, sans-serif;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+hr {
+    width: 12rem;
+}
+
+button {
+    border: 0;
+    padding: 1.25rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+button:hover {
+    cursor: pointer;
+}
+
+input {
+    border: 0;
+    background-color: #d3d3d3;
+    padding: 0.65rem;
+    border-radius: 0.5rem;
+    font-family:inherit;
+}
+
+select, textarea, button {
+    font-family:inherit;
+}
+
+#quizContainer {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 1.1rem;
+    margin: auto;
+    width: 40rem;
+}
+
+#mainTitle {
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.3rem;
+}
+
+.questionTitle {
+    color: black;
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+.questionParagraph {
+    color: black;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.questionContainer {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+}
+
+#markContainer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    color: rgb(60, 146, 60);
+    font-weight: bold;
+}
+
+#buttonContainer {
+    padding-top: 2.5rem;
+    padding-bottom: 1.5rem;
+}
+
+#submitForm {
+    background-color: #4285F4;
+    color: whitesmoke;
+    margin-right: 1rem;
+    transition: all ease 0.4s;
+}
+
+#submitForm:hover {
+    background-color:  #2a74ec;
+    transition: all ease 0.4s;
+}
+#reloadForm {
+    transition: all ease 0.4s;
+    background-color: rgb(233, 222, 222)
+}
+#reloadForm:hover {
+    transition: all ease 0.4s;
+    background-color: rgb(177, 175, 175)
+}
+#hrefContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 2rem;
+    font-weight: bold;
+    color: #4285F4;
+}
+
+#lodashImage {
+    margin-left: -1.25rem;
+}
