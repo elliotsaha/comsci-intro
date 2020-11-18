@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Computer Science Quiz</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css"
+  ></link>
+  </head>
+  <body>
+    <div id="quizContainer">
+      <h1 id="mainTitle">Tip Calculator</h1>
+      <hr/>
+      <form id="form">
+        <div id="container">
+            <div>
+                <h3>What is the amount payed payed? ($)</h3>
+                <input id="amountPayed" />
+            </div>
+            <div> 
+                <h3>How much do you want to tip (%)</h3>
+                <input id="inputTipAmount" value="15"/>
+            </div>
+            
+        </div>
+        <div>
+            <button type="button" id="submit">Get Tip</button>
+        </div>
+      </form>        
+      <div id="answerContainer">
+          <div id="answer"></div>
+      </div>
+      <div>
+          <div id="output"></div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+ </body>
+</html>
