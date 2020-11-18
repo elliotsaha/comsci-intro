@@ -1,3 +1,5 @@
+document.getElementById("submitForm").addEventListener("click", onSubmit)
+
 function onSubmit() {
   // Inputs
   const q1 = document.getElementById("question1")

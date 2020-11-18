@@ -25,39 +25,54 @@ function onSubmit(e) {
       q5: "lodash",
     };
     
+    // Question 1 Error Handler
     if (q1.value.toLowerCase() === answers.q1) {
       counter += 1;
       q1ErrorHandler.innerHTML = "Correct Answer"
+      q1ErrorHandler.classList.add("correctAnswer")
     } else {
       q1ErrorHandler.innerHTML = "Incorrect, The Correct Answer was Machine Code";
+      q1ErrorHandler.classList.add("incorrectAnswer")
     }
-  
+    
+    // Question 2 Error Handler
     if (q2.value.toLowerCase() === answers.q2) {
       counter += 1;
       q2ErrorHandler.innerHTML = "Correct Answer"
+      q2ErrorHandler.classList.add("correctAnswer")
     } else {
-      q3ErrorHandler.innerHTML = "Incorrect, The Correct Answer was LLP64"
+      q2ErrorHandler.innerHTML = "Incorrect, The Correct Answer was LLP64"
+      q2ErrorHandler.classList.add("incorrectAnswer")
     }
-  
+    
+    // Question 3 Error Handler
     if (q3.value.toLowerCase() === answers.q3) {
       counter += 1;
       q3ErrorHandler.innerHTML = "Correct Answer"
+      q3ErrorHandler.classList.add("correctAnswer")
     } else {
       q3ErrorHandler.innerHTML = "Incorrect, The Correct Answer was ILP32"
+      q3ErrorHandler.classList.add("incorrectAnswer")
     }
-  
+    
+    // Question 4 Error Handler
     if (q4.value.toLowerCase() === answers.q4) {
       counter += 1;
       q4ErrorHandler.innerHTML = "Correct Answer"
+      q4ErrorHandler.classList.add("correctAnswer")
     } else {
       q4ErrorHandler.innerHTML = "Incorrect, The Correct Answer was 8"
+      q4ErrorHandler.classList.add("incorrectAnswer")
     }
-  
+    
+    // Question 5 Error Handler
     if (q5.value.toLowerCase() === answers.q5) {
       counter += 1;
       q5ErrorHandler.innerHTML = "Correct Answer"
+      q5ErrorHandler.classList.add("correctAnswer")
     } else {
       q5ErrorHandler.innerHTML = "Incorrect, The Correct Answer was Lodash"
+      q5ErrorHandler.classList.add("incorrectAnswer")
     }
     
   }
