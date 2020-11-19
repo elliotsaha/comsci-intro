@@ -1,15 +1,15 @@
-document.getElementById("submitForm").addEventListener("click", onSubmit)
+document.getElementById("submitForm").addEventListener("click", onSubmit);
 
 function onSubmit() {
   // Inputs
-  const q1 = document.getElementById("question1")
-  const q2 = document.getElementById("question2")
-  const q3 = document.getElementById("question3")
-  const q4 = document.getElementById("question4")
-  const q5 = document.getElementById("question5")
+  const q1 = document.getElementById("question1");
+  const q2 = document.getElementById("question2");
+  const q3 = document.getElementById("question3");
+  const q4 = document.getElementById("question4");
+  const q5 = document.getElementById("question5");
 
   // Mark
-  const mark = document.getElementById("mark")
+  const mark = document.getElementById("mark");
   // Counter to know which questions user got correct
   let counter = 0;
 
@@ -29,7 +29,7 @@ function onSubmit() {
 
   if (q2.value.toLowerCase() === answers.q2) {
     counter += 1;
-  } 
+  }
 
   if (q3.value.toLowerCase() === answers.q3) {
     counter += 1;
@@ -44,6 +44,6 @@ function onSubmit() {
   }
 
   // Percentage Calculation
-  const percent = counter / 5 * 100
-  mark.innerHTML = `Your Mark Is ${counter} / 5 (${percent}%)`
+  const percent = (counter / 5) * 100;
+  mark.innerHTML = `Your Mark Is ${counter} / 5 (${percent}%)`;
 }

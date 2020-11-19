@@ -1,47 +1,49 @@
 body {
-    background-image: url("image.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    min-height: 100vh;
-    height: 100%;
-    font-family: Gilroy, sans-serif;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-    color: white;
-    text-align: center;
+  background-image: url("image.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  font-family: Gilroy, sans-serif;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  color: white;
+  text-align: center;
 }
 
 hr {
-    width: 12rem;
+  width: 12rem;
 }
 
 button {
-    margin-top: 2.5rem;
-    border: 0;
-    padding: 1.25rem;
-    border-radius: 0.25rem;
-    font-weight: bold;
-    font-size: 0.9rem;
+  margin-top: 2.5rem;
+  border: 0;
+  padding: 1.25rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  font-size: 0.9rem;
 }
 
 button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 input {
-    border: 0;
-    background-color: #d3d3d3;
-    padding: 0.65rem;
-    border-radius: 0.5rem;
-    font-family:inherit;
+  border: 0;
+  background-color: #d3d3d3;
+  padding: 0.65rem;
+  border-radius: 0.5rem;
+  font-family: inherit;
 }
 
-select, textarea, button {
-    font-family:inherit;
+select,
+textarea,
+button {
+  font-family: inherit;
 }
 
 #output {
-    padding-top: 2rem;
+  padding-top: 2rem;
 }

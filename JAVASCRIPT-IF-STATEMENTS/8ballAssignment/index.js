@@ -1,4 +1,3 @@
-
 // Variables
 const input = document.getElementById("takeInput");
 const output = document.getElementById("output");
@@ -30,4 +29,3 @@ function onSubmit() {
     }
   }
 }
-
