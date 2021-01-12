@@ -2,7 +2,7 @@ var navbar = document.getElementById("navbar");
 
 // Change navbar classname on scroll
 window.addEventListener("scroll", function () {
-  if (window.scrollY !== 0) {
+  if (window.scrollY > 50) {
     // On scroll remove normal class and add scroll class
     navbar.classList.remove("navbarRoot");
     navbar.classList.add("navbarRootScroll");
