@@ -215,3 +215,70 @@ a {
   width: 20rem;
   height: 20rem;
 }
+
+.aboutUs {
+  min-height: 50rem;
+  background-color: #013f92;
+  position: relative;
+  font-family: "Inter", sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.aboutUsInner {
+  max-width: 30rem;
+  margin-left: 2.5rem;
+}
+.aboutUsTitle {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: -0.5rem;
+}
+
+.aboutUsPara { 
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem;
+}
+
+.footerLogoSquare {
+  background: transparent;
+  border-style: solid;
+  border-color: #f8566a;
+  border-width: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.75rem;
+}
+
+.footerLogoText {
+  font-weight: bold;
+  margin-right: 0.75rem;
+  color:#013f92;
+}
+
+.footerLogoContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-weight: bold;
+}

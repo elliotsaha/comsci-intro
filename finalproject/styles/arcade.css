@@ -120,7 +120,7 @@ a {
 }
 
 .downIconInner {
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
   background-color: #f8566a;
   padding: 0.75rem;
   padding-bottom: 0.6rem;
@@ -134,4 +134,13 @@ a {
   padding: 0;
   margin: 0;
   background: none;
+  outline: none;
+}
+
+.hiddenButton:focus {
+  outline: none;
+}
+
+.belowFold { 
+  min-height: 30rem;
 }
