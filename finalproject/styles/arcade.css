@@ -7,7 +7,7 @@ a {
   text-decoration: none;
   color: white;
 }
-.root {
+/* .root {
   font-family: "Inter", sans-serif;
   padding: 0;
   margin: 0;
@@ -73,7 +73,7 @@ a {
   text-decoration-color: #f8566a;
   text-decoration-thickness: 0.3rem;
   text-underline-offset: 0.5rem;
-}
+} */
 
 .aboveFold {
   height: 50rem;
@@ -144,3 +144,44 @@ a {
 .belowFold { 
   min-height: 30rem;
 }
+
+/* .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem;
+}
+
+.footerLogoSquare {
+  background: transparent;
+  border-style: solid;
+  border-color: #f8566a;
+  border-width: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.75rem;
+}
+
+.footerLogoText {
+  font-weight: bold;
+  margin-right: 0.75rem;
+  color:#013f92;
+}
+
+.footerLogoContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-weight: bold;
+}
+
+ */

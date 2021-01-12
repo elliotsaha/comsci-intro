@@ -17,24 +17,30 @@
       <nav class="navbarRoot" id="navbar">
         <div class="navbarInner">
           <div class="navLinkContainer">
-            <a href="/">
+            
               <div class="navLinkLogoContainer">
                 <div class="navLinkLogoSquare"></div>
                 <div class="navLinkLogoText">The Inter Arcade</div>
               </div>
-            </a>
+            
           </div>
           <div class="navLinkContainer">
-            <a href="/" class="link">Home</a>
+            <button class="tablink" id="homepageLink">
+                Home
+            </button>
+          
           </div>
           <div class="navLinkContainer">
-            <a href="arcade.html" class="link">Arcade</a>
+            <button class="tablink" id="arcadeLink"></span>Arcade
           </div>
         </div>
       </nav>
 
       <!--NAVBAR END-->
-      <!--ABOVE FOLD START-->
+
+      <!--HOMEPAGE START-->
+      <div class="tabContentActive" id="homepage">
+         <!--ABOVE FOLD START-->
       <div class="aboveFold">
         <div class="aboveFoldInner">
           <div>
@@ -77,6 +83,44 @@
         <div class="aboveFoldCircleBorderOuter2"></div>
       </div>
       <!--ABOUT US END-->
+      </div>
+     
+      <!--HOMEPAGE END-->
+
+
+      <!--ARCADE START-->
+      <div class="tabContent" id="arcade">
+<!--ABOVE FOLD START-->
+      <div class="arcadeAboveFold">
+        <h1 class="arcadeAboveFoldTitle">Try Our Featured Platformer</h1>
+        <h6 class="arcadeAboveFoldSub">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+          repellendus nesciunt unde quis aliquid aperiam.
+        </h6>
+
+        
+        <div class="arcadeDownIconContainer">
+          <button id="scrollDown" class="arcadeHiddenButton">
+             <div class="arcadeDownIconBorder"></div>
+          <div class="arcadeDownIconInner">
+            <img src="img/icons/down.svg" alt="down" />
+          </div>
+          </button>
+         
+        </div>
+      </div>
+      <!--ABOVE FOLD END-->
+      <!--BELOW FOLD START-->
+      <div class="arcadeBelowFold">
+        <div>
+          
+        </div>
+      </div>
+      <!--BELOW FOLD END-->
+      </div>
+      
+      <!--ARCADE END-->
+
       <!--FOOTER START-->
       <div class="footer">
         <div class="flexCenter">
@@ -96,6 +140,7 @@
     <script src="javascript/webComponents/navbar.js"></script>
     <script src="javascript/webComponents/footer.js"></script>
     <script src="javascript/webComponents/index.js"></script>
+    <script src="javascript/webComponents/arcade.js"></script>
     <!--JAVASCRIPT SCRIPTS END-->
   </body>
 </html>
