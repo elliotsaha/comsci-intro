@@ -4,8 +4,8 @@ body {
 }
 
 a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 .root {
   font-family: "Inter", sans-serif;
@@ -14,11 +14,24 @@ a {
 }
 
 .navbarRoot {
-  background-color: transparent;
+  background-color: white;
+  width: "100%";
+  height: "5rem";
+}
+.navbarInner {
   position: fixed;
   z-index: 9999;
   display: flex;
   margin: 2rem;
+  transition: all 0.3s ease-in-out;
+}
+.navbarRootScroll {
+  background-color: #013f92;
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  margin: 2rem;
+  transition: all 0.3s ease-in-out;
 }
 .navLinkLogoContainer {
   position: relative;
@@ -44,17 +57,17 @@ a {
   font-weight: bold;
   margin-top: auto;
   margin-bottom: auto;
-    cursor: pointer;
+  cursor: pointer;
 }
 .link {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 .link:hover {
-    text-decoration: underline;
-    text-decoration-color: #f8566a;
-    text-decoration-thickness: 0.3rem;
-    text-underline-offset: 0.5rem;
+  text-decoration: underline;
+  text-decoration-color: #f8566a;
+  text-decoration-thickness: 0.3rem;
+  text-underline-offset: 0.5rem;
 }
 .aboveFold {
   background-color: #013f92;
@@ -173,4 +186,15 @@ a {
   font-size: 0.8rem;
   color: white;
   font-weight: bold;
+}
+
+.belowFoldRoot {
+  background: white;
+  color: #013f92;
+  position: relative;
+}
+
+.belowFoldTitle {
+  font-size: 4rem;
+  max-width: 35rem;
 }
