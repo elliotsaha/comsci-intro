@@ -15,9 +15,6 @@ a {
 
 /*TAB CONTENT START*/
 .tabContent {
-  display: none;
-}
-.tabContentActive {
   display: block;
 }
 /*TAB CONTENT END*/
