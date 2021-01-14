@@ -3,11 +3,23 @@ var featuredGameTitle = document.getElementById("featuredGameTitle");
 
 // Tab Elements
 var homepage = document.getElementById("homepage");
-var arcade = document.getElementById("arcade");
+var newsletter = document.getElementById("newsletter");
 
 // Tab Links
-var arcadeLink = document.getElementById("arcadeLink");
+var newsletterLink = document.getElementById("newsletterLink");
 var homepageLink = document.getElementById("homepageLink");
+
+// NewsLetter Email Input
+var emailNewsletter = document.getElementById("emailNewsletter");
+
+// Error Handler Email Verification
+var emailError = document.getElementById("emailError");
+
+// Filling in Email on Newsletter Tab
+var newsletterEmailPopulate = document.getElementById("newsletterEmailPopulate");
+
+// Go Back Button on Newsletter page
+var goBackHome = document.getElementById("goBackHome");
 
 // Change Featured Game Title on Mouse Hover
 featuredGame.addEventListener("mouseover", function () {
@@ -22,20 +34,13 @@ featuredGame.addEventListener("mouseleave", function () {
 let activeTab = "homepage";
 var tabcontent = document.getElementsByClassName("tabContent");
 
-const scrollDown = document.getElementById("scrollDown");
-
-scrollDown.addEventListener("click", function () {
-  // Scrolls down to game on button click
-  window.scrollBy({ top: 1000, left: 0, behavior: "smooth" });
-});
-
 // Footer
 var date = new Date();
 var footerYear = document.getElementById("footerYear");
 
 footerYear.innerHTML = date.getFullYear();
 
-// Navbar 
+// Navbar
 var navbar = document.getElementById("navbar");
 
 // Change navbar classname on scroll
@@ -50,7 +55,6 @@ window.addEventListener("scroll", function () {
     navbar.classList.add("navbarRoot");
   }
 });
-
 
 function changeTab() {
   // Scroll to top of the screen
@@ -67,6 +71,12 @@ function changeTab() {
   }
 }
 
+// newsletter email regex verification
+const verifyEmail = (email) => {
+  const regex = /\S+@\S+\.\S+/;
+  return regex.test(email);
+};
+
 // Set to only one tab during initialization
 changeTab();
 
@@ -75,8 +85,21 @@ homepageLink.addEventListener("click", function () {
   changeTab();
 });
 
-arcadeLink.addEventListener("click", function () {
-  activeTab = "arcade";
-  changeTab();
+newsletterLink.addEventListener("click", function () {
+  // Error handling
+  const inputVerification = verifyEmail(emailNewsletter.value);
+  if (inputVerification) {
+    activeTab = "newsletter";
+    changeTab();
+    emailError.style.display = "none"
+    newsletterEmailPopulate.innerHTML = emailNewsletter.value
+    emailNewsletter.value = ""
+  } else {
+    emailError.style.display = "block"
+  }
 });
 
+goBackHome.addEventListener("click", function() {
+  activeTab = "homepage"
+  changeTab()
+}) 

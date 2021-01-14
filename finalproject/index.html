@@ -17,21 +17,18 @@
       <nav class="navbarRoot" id="navbar">
         <div class="navbarInner">
           <div class="navLinkContainer">
-            
-              <div class="navLinkLogoContainer">
-                <div class="navLinkLogoSquare"></div>
-                <div class="navLinkLogoText">The Inter Arcade</div>
-              </div>
-            
+            <div class="navLinkLogoContainer">
+              <div class="navLinkLogoSquare"></div>
+              <div class="navLinkLogoText">The Inter Arcade</div>
+            </div>
           </div>
           <div class="navLinkContainer">
-            <button class="link" id="homepageLink">
-                Home
-            </button>
-          
+            <button class="link" id="homepageLink"> Home </button>
           </div>
           <div class="navLinkContainer">
-            <button class="link" id="arcadeLink"></span>Arcade
+            <a href="arcade.html">
+              <button class="link">Arcade</button>
+            </a>
           </div>
         </div>
       </nav>
@@ -40,91 +37,85 @@
 
       <!--HOMEPAGE START-->
       <div class="tabContent" id="homepage">
-         <!--ABOVE FOLD START-->
-      <div class="aboveFold">
-        <div class="aboveFoldInner">
-          <div>
-            <h1 class="aboveFoldHeader">The Inter Video Game Arcade</h1>
+        <!--ABOVE FOLD START-->
+        <div class="aboveFold">
+          <div class="aboveFoldInner">
             <div>
-              <a href="arcade.html"
-                ><button class="CTAbutton">View Arcade</button> <!--Change to newsletter button later-->
-              </a>
+              <h1 class="aboveFoldHeader">The Inter Video Game Arcade</h1>
+              <div>
+                <input class="newsletterSignUpInput" placeholder="Join Our Newsletter (Email)" id="emailNewsletter"/>
+                <button class="CTAbutton" id="newsletterLink">Sign Up</button>
+                <!--Change to newsletter button later-->
+              </div>
+              <div class="emailError" id="emailError">
+                Please Enter Valid Email!
+              </div>
             </div>
           </div>
-        </div>
-        <div class="aboveFoldCircle1"></div>
-        <div class="aboveFoldCircleBorderInner1"></div>
-        <div class="aboveFoldCircleBorderOuter1"></div>
+          <div class="aboveFoldCircle1"></div>
+          <div class="aboveFoldCircleBorderInner1"></div>
+          <div class="aboveFoldCircleBorderOuter1"></div>
 
-        <div class="aboveFoldCircle2"></div>
-        <div class="aboveFoldCircleBorderInner2"></div>
-        <div class="aboveFoldCircleBorderOuter2"></div>
-      </div>
-      <!--ABOVE FOLD END-->
-      <!--BELOW FOLD START-->
-      <div class="belowFoldRoot">
-        <h1 class="belowFoldTitle" id="featuredGameTitle">Our Featured Game</h1>
-        <div id="featuredGame" class="featuredGame"></div>
-      </div>
-      <!--BELOW FOLD END-->
-      <!--ABOUT US START-->
-      <div class="aboutUs">
-        <div class="aboutUsInner">
-           <h1 class="aboutUsTitle">About Inter</h1>
-           <p class="aboutUsPara">The Inter Video Game Arcade was developed originally in 2011 as a digital innovation to local arcades in Washington, Seattle. It was developed by a team of 11 people and was built in only a few days. The Inter Video Game Arcade develops and produces a variety of games such as 2D platformers, classic shooters, and more!
-          </p>
+          <div class="aboveFoldCircle2"></div>
+          <div class="aboveFoldCircleBorderInner2"></div>
+          <div class="aboveFoldCircleBorderOuter2"></div>
         </div>
-        <div class="aboveFoldCircle1"></div>
-        <div class="aboveFoldCircleBorderInner1"></div>
-        <div class="aboveFoldCircleBorderOuter1"></div>
+        <!--ABOVE FOLD END-->
+        <!--BELOW FOLD START-->
+        <div class="belowFoldRoot">
+          <h1 class="belowFoldTitle" id="featuredGameTitle">
+            Our Featured Game
+          </h1>
+          <div id="featuredGame" class="featuredGame"></div>
+        </div>
+        <!--BELOW FOLD END-->
+        <!--ABOUT US START-->
+        <div class="aboutUs">
+          <div class="aboutUsInner">
+            <h1 class="aboutUsTitle">About Inter</h1>
+            <p class="aboutUsPara">
+              The Inter Video Game Arcade was developed originally in 2011 as a
+              digital innovation to local arcades in Washington, Seattle. It was
+              developed by a team of 11 people and was built in only a few days.
+              The Inter Video Game Arcade develops and produces a variety of
+              games such as 2D platformers, classic shooters, and more!
+            </p>
+          </div>
+          <div class="aboveFoldCircle1"></div>
+          <div class="aboveFoldCircleBorderInner1"></div>
+          <div class="aboveFoldCircleBorderOuter1"></div>
 
-        <div class="aboveFoldCircle2"></div>
-        <div class="aboveFoldCircleBorderInner2"></div>
-        <div class="aboveFoldCircleBorderOuter2"></div>
+          <div class="aboveFoldCircle2"></div>
+          <div class="aboveFoldCircleBorderInner2"></div>
+          <div class="aboveFoldCircleBorderOuter2"></div>
+        </div>
+        <!--ABOUT US END-->
       </div>
-      <!--ABOUT US END-->
-      </div>
-     
+
       <!--HOMEPAGE END-->
 
+      <!--NEWSLETTER START-->
+      <div class="tabContent" id="newsletter">
+        <div class="newsletterAboveFold">
+          <h1 class="newsletterAboveFoldTitle">Thanks For Signing Up To Our News Letter!</h1>
+          <h6 class="newsletterAboveFoldSub">
+            We Will Be Consistantly Emailing <b id="newsletterEmailPopulate"></b> About Updates on The Inter Arcade Video Game Arcade.
+          </h6>
 
-      <!--ARCADE START-->
-      <div class="tabContent" id="arcade">
-<!--ABOVE FOLD START-->
-      <div class="arcadeAboveFold">
-        <h1 class="arcadeAboveFoldTitle">Try Our Featured Platformer</h1>
-        <h6 class="arcadeAboveFoldSub">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
-          repellendus nesciunt unde quis aliquid aperiam.
-        </h6>
-
-        
-        <div class="arcadeDownIconContainer">
-          <button id="scrollDown" class="arcadeHiddenButton">
-             <div class="arcadeDownIconBorder"></div>
-          <div class="arcadeDownIconInner">
-            <img src="img/icons/down.svg" alt="down" />
+          <div class="newsletterDownBackContainer">
+            <button class="CTAbutton" id="goBackHome">Go Back</button>
           </div>
-          </button>
-         
         </div>
       </div>
-      <!--ABOVE FOLD END-->
-      <!--BELOW FOLD START-->
-      <div class="arcadeBelowFold">
-        <canvas></canvas>
-      </div>
-      <!--BELOW FOLD END-->
-      </div>
-      
-      <!--ARCADE END-->
+
+      <!--NEWSLETTER END-->
 
       <!--FOOTER START-->
       <div class="footer">
         <div class="flexCenter">
           <div class="footerLogoContainer">
-              <div class="footerLogoSquare"></div>
-              <div class="footerLogoText">The Inter Arcade</div>
+            <div class="footerLogoSquare"></div>
+            <div class="footerLogoText">The Inter Arcade</div>
           </div>
           <div id="footerCopy">
             <span>&copy;</span>

@@ -13,39 +13,45 @@
   </head>
   <body>
     <div class="root">
-      <!--NAVBAR START-->
+            <!--NAVBAR START-->
       <nav class="navbarRoot" id="navbar">
         <div class="navbarInner">
           <div class="navLinkContainer">
-            <a href="/">
+            
               <div class="navLinkLogoContainer">
                 <div class="navLinkLogoSquare"></div>
                 <div class="navLinkLogoText">The Inter Arcade</div>
               </div>
-            </a>
+            
           </div>
           <div class="navLinkContainer">
-            <a href="/" class="link">Home</a>
+            <a href="/" class="link">
+                Home
+            </a>
+          
           </div>
           <div class="navLinkContainer">
             <a href="arcade.html" class="link">Arcade</a>
           </div>
         </div>
       </nav>
+
       <!--NAVBAR END-->
-      <!--ABOVE FOLD START-->
-      <div class="aboveFold">
-        <h1 class="aboveFoldTitle">Try Our Featured Platformer</h1>
-        <h6 class="aboveFoldSub">
+            <!--ARCADE START-->
+      <div class="tabContent" id="arcade">
+<!--ABOVE FOLD START-->
+      <div class="arcadeAboveFold">
+        <h1 class="arcadeAboveFoldTitle">Try Our Featured Platformer</h1>
+        <h6 class="arcadeAboveFoldSub">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
           repellendus nesciunt unde quis aliquid aperiam.
         </h6>
 
         
-        <div class="downIconContainer">
-          <button id="scrollDown" class="hiddenButton">
-             <div class="downIconBorder"></div>
-          <div class="downIconInner">
+        <div class="arcadeDownIconContainer">
+          <button id="scrollDown" class="arcadeHiddenButton">
+             <div class="arcadeDownIconBorder"></div>
+          <div class="arcadeDownIconInner">
             <img src="img/icons/down.svg" alt="down" />
           </div>
           </button>
@@ -54,31 +60,32 @@
       </div>
       <!--ABOVE FOLD END-->
       <!--BELOW FOLD START-->
-      <div class="belowFold">
-        <div>
-          
-        </div>
+      <div class="arcadeBelowFold">
+        <canvas></canvas>
       </div>
       <!--BELOW FOLD END-->
-          <!--FOOTER START-->
-            <div class="footer">
-              <div class="flexCenter">
-                <div class="footerLogoContainer">
-                    <div class="footerLogoSquare"></div>
-                    <div class="footerLogoText">The Inter Arcade</div>
-                </div>
-                <div id="footerCopy">
-                  <span>&copy;</span>
-                  <span id="footerYear"></span>
-                </div>
-              </div>
-            </div>
-         <!--FOOTER END-->
-    </div>
+      </div>
+      
+      <!--ARCADE END-->
+
+            <!--FOOTER START-->
+      <div class="footer">
+        <div class="flexCenter">
+          <div class="footerLogoContainer">
+              <div class="footerLogoSquare"></div>
+              <div class="footerLogoText">The Inter Arcade</div>
+          </div>
+          <div id="footerCopy">
+            <span>&copy;</span>
+            <span id="footerYear"></span>
+          </div>
+        </div>
+      </div>
+      <!--FOOTER END-->
+
     <!--JAVASCRIPT SCRIPTS START-->
-    <script src="javascript/webComponents/navbar.js"></script>
-    <script src="javascript/webComponents/footer.js"></script>
-    <script src="javascript/webComponents/arcade.js"></script>
+    <script src="arcade.js"></script>
+    <script src="init.js"></script>
     <!--JAVASCRIPT SCRIPTS END-->
   </body>
 </html>

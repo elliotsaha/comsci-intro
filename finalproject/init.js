@@ -5,10 +5,18 @@ var context,
   controller,
   loop,
   canvas_height,
-  canvas_width;
+  canvas_width,
+  characterSprite;
 
 // define canvas
 context = document.querySelector("canvas").getContext("2d");
+
+// define character sprite
+characterSprite = new Image();
+characterSprite.src = "img/sprites/character.png";
+characterSprite.onload = function () {
+  
+};
 
 context.canvas.height = 300;
 context.canvas.width = 650;
@@ -26,8 +34,7 @@ rectangle = {
   y_velocity: 0,
 };
 
-// controller for movement
-
+// check if certain movement keys are being held down
 keyListen = (event) => {
   // key_state only true if a key is held down on keyboard
   const key_state = event.type === "keydown" ? true : false;
@@ -63,7 +70,7 @@ keyListen = (event) => {
   }
 };
 
-// key state controller object
+// controller for movement
 controller = {
   left: false,
   right: false,
@@ -71,6 +78,7 @@ controller = {
   keyListener: keyListen,
 };
 
+// loop
 loop = () => {
   if (controller.up && rectangle.jumping === false) {
     rectangle.y_velocity -= 20;
@@ -91,16 +99,18 @@ loop = () => {
   rectangle.y += rectangle.y_velocity;
 
   // if rectangle is falling below floor
-  if (rectangle.y > canvas_height - rectangle.height - 3 // taking account for the size of the rectangle and the size of the bottom platform
-    ) {
-      rectangle.jumping = false;
-      rectangle.y = canvas_height - rectangle.height - 3; // taking account for the size of the rectangle and the size of the bottom platform
-      rectangle.y_velocity = 0;
-    }
-  
+  if (
+    rectangle.y >
+    canvas_height - rectangle.height - 3 // taking account for the size of the rectangle and the size of the bottom platform
+  ) {
+    rectangle.jumping = false;
+    rectangle.y = canvas_height - rectangle.height - 3; // taking account for the size of the rectangle and the size of the bottom platform
+    rectangle.y_velocity = 0;
+  }
+
   // to prevent consistant incrementation of velocity
-  rectangle.y_velocity *= 0.96
-  rectangle.x_velocity *= 0.96
+  rectangle.y_velocity *= 0.96;
+  rectangle.x_velocity *= 0.96;
 
   // context styles
   context.fillStyle = "#202020";
@@ -119,6 +129,7 @@ loop = () => {
   context.moveTo(0, canvas_height);
   context.lineTo(canvas_width, canvas_height);
   context.stroke();
+
   // call update
   window.requestAnimationFrame(loop);
 };
