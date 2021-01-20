@@ -6,7 +6,10 @@ var ctx,
   sprite_sheet,
   loop,
   level,
-  flag;
+  flag,
+  getDimensions,
+  switchLevel,
+  platforms;
 
 // canvas
 ctx = document.querySelector("canvas").getContext("2d");
@@ -15,8 +18,9 @@ ctx.canvas.width = 1100;
 // There are 6 sprites for animation, each have a height of 16 pixels and a width of 16 pixels
 spriteSize = 64;
 
-// Animation class
+// Animation functional class
 Animation = function (frame_set, delay) {
+  // constructor
   this.count = 0; // Number of game cycles since last frame change
   this.delay = delay; // number of game cycles to wait until next frame change
   this.frame = 0; // value in sprite sheet, ex. if equal to 0 -> will return the first sprite in spritesheet
@@ -47,6 +51,15 @@ Animation.prototype = {
   },
 };
 // Prototype functions that allow the modification of this keyword objects
+
+getDimensions = function ({ x, y, width, height }) {
+  return {
+    top: y,
+    right: x + width,
+    left: x,
+    bottom: y + height,
+  };
+};
 
 // Controller for movement
 controller = {
@@ -99,6 +112,9 @@ character = {
   y: 40 - 18,
   x_velocity: 0,
   y_velocity: 0,
+  dimensions: function () {
+    return getDimensions(this);
+  },
 };
 
 // Spreite sheet object that holds the sprite sheet image and animation frame set arrays
@@ -112,8 +128,25 @@ sprite_sheet = {
   image: new Image(),
 };
 
-flag = new Image();
+flag = {
+  image: new Image(),
+  x: ctx.canvas.width - 70,
+  y: ctx.canvas.height - 77,
+  width: spriteSize,
+  height: spriteSize,
+  dimensions: function () {
+    return getDimensions(this);
+  },
+};
+
 level = 1;
+
+switchLevel = () => {
+  level++;
+  character.x = 0;
+  character.y = 0;
+};
+
 loop = (time_stamp) => {
   if (controller.up && !character.jumping) {
     controller.up = false;
@@ -154,8 +187,29 @@ loop = (time_stamp) => {
     character.x = ctx.canvas.width - character.width + 13;
   }
 
-  character.animation.update();
+  // flag collision detection
+  if (
+    character.dimensions().right > flag.dimensions().left ||
+    character.dimensions().left > flag.dimensions().right
+  ) {
+    switchLevel();
+  }
 
+  if (level === 1) {
+    platforms = [
+      {
+        width: 100,
+        height: 25,
+        x: 400,
+        y: ctx.canvas.height - 50,
+      },
+    ];
+  } else if (level === 2) {
+    console.log("awdh");
+  } else if (level === 3) {
+    console.log("oajdwihu");
+  }
+  character.animation.update();
   ctx.fillStyle = "#7ec0ff";
   ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   ctx.fillStyle = "#009900";
@@ -163,7 +217,7 @@ loop = (time_stamp) => {
   ctx.font = "bold 20px sans-serif";
   ctx.fillStyle = "white";
   ctx.textAlign = "center";
-  ctx.fillText(`Level ${1}`, ctx.canvas.width / 2, ctx.canvas.height / 4);
+  ctx.fillText(`Level ${level}`, ctx.canvas.width / 2, ctx.canvas.height / 4);
   ctx.drawImage(
     sprite_sheet.image,
     character.animation.frame * spriteSize,
@@ -186,15 +240,27 @@ loop = (time_stamp) => {
     ctx.canvas.width,
     ctx.canvas.height
   );
+  ctx.drawImage(flag.image, flag.x, flag.y, flag.width, flag.height);
 
-  // flag
-  ctx.drawImage(
-    flag,
-    ctx.canvas.width - 70,
-    ctx.canvas.height - 77,
-    spriteSize,
-    spriteSize
-  );
+  for (i = 0; i < platforms.length; i++) {
+    const dimensions = getDimensions(platforms[i]);
+    console.log(character.dimensions().bottom, dimensions.top);
+    if (
+      character.dimensions().right > dimensions.left &&
+      character.dimensions().left < dimensions.right && character.dimensions().bottom > dimensions.top
+      //|| character.dimensions().left > dimensions.right && character.dimensions.right < dimensions.left
+    ) {
+      character.y_velocity = 0;
+      character.y = dimensions.top - character.height;
+    }
+    ctx.fillStyle = "blue";
+    ctx.fillRect(
+      platforms[i].x,
+      platforms[i].y,
+      platforms[i].width,
+      platforms[i].height
+    );
+  }
 
   window.requestAnimationFrame(loop);
 };
@@ -208,4 +274,4 @@ sprite_sheet.image.addEventListener("load", function (event) {
   window.requestAnimationFrame(loop); // Start the game loop.
 });
 sprite_sheet.image.src = "img/animation.png";
-flag.src = "img/flag.png";
+flag.image.src = "img/flag.png";
