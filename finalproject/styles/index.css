@@ -258,13 +258,14 @@ input:focus, textarea:focus {
 .belowFoldTitle {
   font-size: 4rem;
   color: #013f92;
-  max-width: 45rem;
-  margin-left: 5rem;
+  text-align: center;
 }
 
 .featuredGame {
-  width: 20rem;
-  height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
 }
 
 .aboutUs {
@@ -295,6 +296,31 @@ input:focus, textarea:focus {
   text-align: center;
 }
 
+.loadingState {
+  display: none;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-family: inherit;
+  margin-top: 0.5rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+.loadingIcon {
+  animation: rotation 2s infinite linear;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
 /*HOMEPAGE END*/
 
 /*NEWSLETTER START*/

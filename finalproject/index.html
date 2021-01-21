@@ -23,7 +23,7 @@
             </div>
           </div>
           <div class="navLinkContainer">
-            <button class="link" id="homepageLink"> Home </button>
+            <button class="link" id="homepageLink">Home</button>
           </div>
           <div class="navLinkContainer">
             <a href="arcade.html">
@@ -43,9 +43,22 @@
             <div>
               <h1 class="aboveFoldHeader">The Inter Video Game Arcade</h1>
               <div>
-                <input class="newsletterSignUpInput" placeholder="Join Our Newsletter (Email)" id="emailNewsletter"/>
+                <input
+                  class="newsletterSignUpInput"
+                  placeholder="Join Our Newsletter (Email)"
+                  id="emailNewsletter"
+                />
                 <button class="CTAbutton" id="newsletterLink">Sign Up</button>
-                <!--Change to newsletter button later-->
+              </div>
+              <div class="loadingState" id="loadingStateHomepage">
+                <div>
+                  <img
+                    src="img/icons/loading.svg"
+                    alt="loading"
+                    class="loadingIcon"
+                  />
+                </div>
+                <div>Loading...</div>
               </div>
               <div class="emailError" id="emailError">
                 Please Enter Valid Email!
@@ -66,7 +79,9 @@
           <h1 class="belowFoldTitle" id="featuredGameTitle">
             Our Featured Game
           </h1>
-          <div id="featuredGame" class="featuredGame"></div>
+          <div id="featuredGame" class="featuredGame">
+            <canvas></canvas>
+          </div>
         </div>
         <!--BELOW FOLD END-->
         <!--ABOUT US START-->
@@ -97,9 +112,13 @@
       <!--NEWSLETTER START-->
       <div class="tabContent" id="newsletter">
         <div class="newsletterAboveFold">
-          <h1 class="newsletterAboveFoldTitle">Thanks For Signing Up To Our News Letter!</h1>
+          <h1 class="newsletterAboveFoldTitle">
+            Thanks For Signing Up To Our News Letter!
+          </h1>
           <h6 class="newsletterAboveFoldSub">
-            We Will Be Consistantly Emailing <b id="newsletterEmailPopulate"></b> About Updates on The Inter Arcade Video Game Arcade.
+            We Will Be Consistantly Emailing
+            <b id="newsletterEmailPopulate"></b> About Updates on The Inter
+            Arcade Video Game Arcade.
           </h6>
 
           <div class="newsletterDownBackContainer">
@@ -127,7 +146,7 @@
     </div>
     <!--JAVASCRIPT SCRIPTS START-->
     <script src="index.js"></script>
-    <script src="init2.js"></script>
+    <script src="init.js"></script>
     <!--JAVASCRIPT SCRIPTS END-->
   </body>
 </html>

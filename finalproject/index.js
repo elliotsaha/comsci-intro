@@ -16,7 +16,9 @@ var emailNewsletter = document.getElementById("emailNewsletter");
 var emailError = document.getElementById("emailError");
 
 // Filling in Email on Newsletter Tab
-var newsletterEmailPopulate = document.getElementById("newsletterEmailPopulate");
+var newsletterEmailPopulate = document.getElementById(
+  "newsletterEmailPopulate"
+);
 
 // Go Back Button on Newsletter page
 var goBackHome = document.getElementById("goBackHome");
@@ -29,6 +31,9 @@ featuredGame.addEventListener("mouseover", function () {
 featuredGame.addEventListener("mouseleave", function () {
   featuredGameTitle.innerHTML = "Our Featured Game";
 });
+
+// Loading State
+var loadingStateHomepage = document.getElementById("loadingStateHomepage");
 
 // Tabs
 let activeTab = "homepage";
@@ -86,20 +91,26 @@ homepageLink.addEventListener("click", function () {
 });
 
 newsletterLink.addEventListener("click", function () {
-  // Error handling
-  const inputVerification = verifyEmail(emailNewsletter.value);
-  if (inputVerification) {
-    activeTab = "newsletter";
-    changeTab();
-    emailError.style.display = "none"
-    newsletterEmailPopulate.innerHTML = emailNewsletter.value
-    emailNewsletter.value = ""
-  } else {
-    emailError.style.display = "block"
-  }
+  loadingStateHomepage.style.display = "flex";
+  emailError.style.display = "none";
+  setTimeout(() => {
+    // remove loading
+    loadingStateHomepage.style.display = "none";
+    // Error handling
+    const inputVerification = verifyEmail(emailNewsletter.value);
+    if (inputVerification) {
+      activeTab = "newsletter";
+      changeTab();
+      emailError.style.display = "none";
+      newsletterEmailPopulate.innerHTML = emailNewsletter.value;
+      emailNewsletter.value = "";
+    } else {
+      emailError.style.display = "block";
+    }
+  }, 1000);
 });
 
-goBackHome.addEventListener("click", function() {
-  activeTab = "homepage"
-  changeTab()
-}) 
+goBackHome.addEventListener("click", function () {
+  activeTab = "homepage";
+  changeTab();
+});
