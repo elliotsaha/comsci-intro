@@ -9,8 +9,8 @@ var ctx,
   flag,
   getDimensions,
   switchLevel,
-  platforms;
-
+  platforms,
+  gameFinish;
 // canvas
 ctx = document.querySelector("canvas").getContext("2d");
 ctx.canvas.height = 300;
@@ -69,6 +69,7 @@ controller = {
   keyListener: (event) => {
     // key_state only true if a key is held down on keyboard
     const key_state = event.type === "keydown" ? true : false;
+
     switch (event.keyCode) {
       // ARROW KEYS
       case 37:
@@ -102,7 +103,7 @@ controller = {
   },
 };
 
-// Charaecter is an object with an animation object
+// Character is an object with an animation object
 character = {
   animation: new Animation(), // animation value is equal to the Animation class, all Animation class this objects can be modified from this value
   jumping: true,
@@ -117,7 +118,7 @@ character = {
   },
 };
 
-// Spreite sheet object that holds the sprite sheet image and animation frame set arrays
+// Sprite sheet object that holds the sprite sheet image and animation frame set arrays
 
 sprite_sheet = {
   frame_sets: [
@@ -195,19 +196,122 @@ loop = (time_stamp) => {
     switchLevel();
   }
 
+  gameFinish = false;
+
   if (level === 1) {
+    platforms = [
+      {
+        width: 150,
+        height: 25,
+        x: 200,
+        y: ctx.canvas.height - 70,
+      },
+      {
+        width: 50,
+        height: 25,
+        x: 390,
+        y: ctx.canvas.height - 120,
+      },
+      {
+        width: 90,
+        height: 25,
+        x: 450,
+        y: ctx.canvas.height - 180,
+      },
+      {
+        width: 90,
+        height: 25,
+        x: 650,
+        y: ctx.canvas.height - 85,
+      },
+    ];
+  } else if (level === 2) {
     platforms = [
       {
         width: 100,
         height: 25,
+        x: 100,
+        y: ctx.canvas.height - 75,
+      },
+      {
+        width: 110,
+        height: 25,
+        x: 200,
+        y: ctx.canvas.height - 145,
+      },
+      {
+        width: 35,
+        height: 25,
+        x: 320,
+        y: ctx.canvas.height - 100,
+      },
+      {
+        width: 110,
+        height: 25,
         x: 400,
-        y: ctx.canvas.height - 50,
+        y: ctx.canvas.height - 145,
+      },
+      {
+        width: 90,
+        height: 25,
+        x: 550,
+        y: ctx.canvas.height - 85,
+      },
+      {
+        width: 110,
+        height: 25,
+        x: 700,
+        y: ctx.canvas.height - 65,
+      },
+      {
+        width: 30,
+        height: 25,
+        x: 850,
+        y: ctx.canvas.height - 105,
       },
     ];
-  } else if (level === 2) {
-    console.log("awdh");
   } else if (level === 3) {
-    console.log("oajdwihu");
+    platforms = [
+      {
+        width: 100,
+        height: 25,
+        x: 180,
+        y: ctx.canvas.height - 75,
+      },
+      {
+        width: 100,
+        height: 25,
+        x: 350,
+        y: ctx.canvas.height - 125,
+      },
+      {
+        width: 50,
+        height: 25,
+        x: 500,
+        y: ctx.canvas.height - 165,
+      },
+      {
+        width: 50,
+        height: 25,
+        x: 600,
+        y: ctx.canvas.height - 75,
+      },
+      {
+        width: 80,
+        height: 25,
+        x: 700,
+        y: ctx.canvas.height - 125,
+      },
+    ];
+  } else if (level === 4) {
+    gameFinish = true;
+    character.x_velocity = 0;
+    character.x = ctx.canvas.width / 2 - character.width + 15;
+    character.y = ctx.canvas.height - 13 - character.height;
+    character.y_velocity = 0;
+    platforms = [];
+    flag.width = 0;
+    flag.height = 0;
   }
   character.animation.update();
   ctx.fillStyle = "#7ec0ff";
@@ -217,7 +321,11 @@ loop = (time_stamp) => {
   ctx.font = "bold 20px sans-serif";
   ctx.fillStyle = "white";
   ctx.textAlign = "center";
-  ctx.fillText(`Level ${level}`, ctx.canvas.width / 2, ctx.canvas.height / 4);
+  ctx.fillText(
+    !gameFinish ? `Level ${level}` : "Thanks For Playing!",
+    ctx.canvas.width / 2,
+    ctx.canvas.height / 4
+  );
   ctx.drawImage(
     sprite_sheet.image,
     character.animation.frame * spriteSize,
@@ -241,17 +349,49 @@ loop = (time_stamp) => {
     ctx.canvas.height
   );
   ctx.drawImage(flag.image, flag.x, flag.y, flag.width, flag.height);
-
   for (i = 0; i < platforms.length; i++) {
     const dimensions = getDimensions(platforms[i]);
-    console.log(character.dimensions().bottom, dimensions.top);
+    // if (
+    //   character.dimensions().right > dimensions.left &&
+    //   character.dimensions().left < dimensions.right
+    //   // || character.dimensions().left > dimensions.right && character.dimensions.right < dimensions.left
+    // ) {
+    //   character.x_velocity = 0;
+    //   character.x = dimensions.right
+    // }
+
     if (
-      character.dimensions().right > dimensions.left &&
-      character.dimensions().left < dimensions.right && character.dimensions().bottom > dimensions.top
-      //|| character.dimensions().left > dimensions.right && character.dimensions.right < dimensions.left
+      character.dimensions().bottom >= dimensions.top &&
+      character.dimensions().top <= dimensions.bottom &&
+      character.dimensions().right >= dimensions.left &&
+      character.dimensions().left <= dimensions.right
     ) {
-      character.y_velocity = 0;
-      character.y = dimensions.top - character.height;
+      if (character.y <= dimensions.top - 56) {
+        character.jumping = false;
+        character.y = dimensions.top - character.height;
+        character.y_velocity = 0;
+      } else if (
+        character.dimensions().right <= dimensions.right &&
+        character.dimensions().left >= dimensions.left
+      ) {
+        character.y_velocity = 0;
+        character.y = dimensions.bottom;
+      } else if (
+        character.dimensions().right >= dimensions.left &&
+        character.dimensions().right <= dimensions.right
+      ) {
+        // character.x = dimensions.left - character.width;
+        character.x = dimensions.left - character.width;
+      } else if (
+        character.dimensions().left <= dimensions.right &&
+        character.dimensions().left >= dimensions.left
+      ) {
+        character.x = dimensions.right;
+      }
+      // else if (character.dimensions().top === dimensions.bottom) {
+      //   character.y_velocity = 0;
+      //   character.y = dimensions.bottom;
+      // }
     }
     ctx.fillStyle = "blue";
     ctx.fillRect(
