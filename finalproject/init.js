@@ -15,11 +15,13 @@ var ctx,
 ctx = document.querySelector("canvas").getContext("2d");
 ctx.canvas.height = 300;
 ctx.canvas.width = 1100;
+
 // There are 6 sprites for animation, each have a height of 16 pixels and a width of 16 pixels
 spriteSize = 64;
+
 // Animation functional class
 Animation = function (frame_set, delay) {
-  // constructor
+  // Constructor
   this.count = 0; // Number of game cycles since last frame change
   this.delay = delay; // number of game cycles to wait until next frame change
   this.frame = 0; // value in sprite sheet, ex. if equal to 0 -> will return the first sprite in spritesheet
@@ -27,6 +29,7 @@ Animation = function (frame_set, delay) {
   this.frame_set = frame_set; // the current animation frame set, ex. [0,1] will be looping between first and second sprites in spritesheet
 };
 
+// Prototype functions inside of the functional Animation class that can manipulate this (keyword)
 Animation.prototype = {
   change: function (frame_set, delay = 15) {
     if (this.frame_set != frame_set) {
@@ -49,8 +52,8 @@ Animation.prototype = {
     }
   },
 };
-// Prototype functions that allow the modification of this keyword objects
 
+// function to recieve the dimensions of any object
 getDimensions = function ({ x, y, width, height }) {
   return {
     top: y,
@@ -118,7 +121,6 @@ character = {
 };
 
 // Sprite sheet object that holds the sprite sheet image and animation frame set arrays
-
 sprite_sheet = {
   frame_sets: [
     [0, 1],
@@ -128,6 +130,7 @@ sprite_sheet = {
   image: new Image(),
 };
 
+// Flag object
 flag = {
   image: new Image(),
   x: ctx.canvas.width - 70,
@@ -139,16 +142,18 @@ flag = {
   },
 };
 
+// Level integer
 level = 1;
 
 switchLevel = () => {
+  // level is incremented and charecter position is reset
   level++;
   character.x = 0;
-  character.y = ctx.canvas.height - 13 - 64;
+  character.y = ctx.canvas.height - 13 - 64; // height of the canvas - ground height - character height
 };
 
-
-loop = (time_stamp) => {
+// main Loog
+loop = () => {
   if (controller.up && !character.jumping) {
     controller.up = false;
     character.jumping = true;
@@ -196,8 +201,10 @@ loop = (time_stamp) => {
     switchLevel();
   }
 
+  // check if level === 4
   gameFinish = false;
 
+  // change platform objects in accordance to the level value
   if (level === 1) {
     platforms = [
       {
@@ -304,6 +311,7 @@ loop = (time_stamp) => {
       },
     ];
   } else if (level === 4) {
+    // thank you for playing screen, character is not movable and all objects removed
     gameFinish = true;
     character.x_velocity = 0;
     character.x = ctx.canvas.width / 2 - character.width + 15;
@@ -352,26 +360,29 @@ loop = (time_stamp) => {
   for (i = 0; i < platforms.length; i++) {
     const dimensions = getDimensions(platforms[i]);
     if (
+      // character is in collision with any platform
       character.dimensions().bottom >= dimensions.top &&
       character.dimensions().top <= dimensions.bottom &&
       character.dimensions().right >= dimensions.left &&
       character.dimensions().left <= dimensions.right
     ) {
+      // check if character is higher than the top of the platform plus an extra 56 pixels (this is to prevent triggering the right side / left side collision code)
       if (character.y <= dimensions.top - 56) {
         character.jumping = false;
         character.y = dimensions.top - character.height;
         character.y_velocity = 0;
       } else if (
+        // if the character's x position + width is less than the x position + width of the platform AND the character's x position is less the x position of the platform, trigger this code block (this is for collision detection on the bottom of the platform and top of the character )
         character.dimensions().right <= dimensions.right &&
         character.dimensions().left >= dimensions.left
       ) {
         character.y_velocity = 0;
         character.y = dimensions.bottom;
       } else if (
+        // Simple check for left right side collision detection, if the characters x position plus their width is greater than the platforms x position and less than the platforms x position + it's width, execute.
         character.dimensions().right >= dimensions.left &&
         character.dimensions().right <= dimensions.right
       ) {
-        // character.x = dimensions.left - character.width;
         character.x = dimensions.left - character.width;
       } else if (
         character.dimensions().left <= dimensions.right &&
