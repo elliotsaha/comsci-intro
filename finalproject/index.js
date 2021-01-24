@@ -1,3 +1,4 @@
+// canvas
 var featuredGame = document.getElementById("featuredGame");
 var featuredGameTitle = document.getElementById("featuredGameTitle");
 
@@ -78,9 +79,12 @@ function changeTab() {
 
 // newsletter email regex verification
 const verifyEmail = (email) => {
-  const regex = /\S+@\S+\.\S+/;
+  const regex = /\S+@\S+\.\S+/; // any character + @ + any character + . + any character (ex. heril@gmail.com)
   return regex.test(email);
 };
+
+
+// The tabs I have are the homepage and the newsletter page, while this isn't a traditional method for tabbing content, it demonstrates that I know how to tab use Javascript to show different tabs
 
 // Set to only one tab during initialization
 changeTab();
