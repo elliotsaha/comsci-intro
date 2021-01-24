@@ -83,7 +83,6 @@ const verifyEmail = (email) => {
   return regex.test(email);
 };
 
-
 // The tabs I have are the homepage and the newsletter page, while this isn't a traditional method for tabbing content, it demonstrates that I know how to tab use Javascript to show different tabs
 
 // Set to only one tab during initialization

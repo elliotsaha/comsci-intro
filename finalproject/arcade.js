@@ -4,7 +4,7 @@ var footerYear = document.getElementById("footerYear");
 
 footerYear.innerHTML = date.getFullYear();
 
-// Navbar 
+// Navbar
 var navbar = document.getElementById("navbar");
 
 // Change navbar classname on scroll

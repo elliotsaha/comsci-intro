@@ -183,7 +183,8 @@ loop = () => {
     character.animation.change(sprite_sheet.frame_sets[2], 15);
   }
 
-  if (!controller.left && !controller.right) { // if not walking right and not walking left, then standing still
+  if (!controller.left && !controller.right) {
+    // if not walking right and not walking left, then standing still
     character.animation.change(sprite_sheet.frame_sets[0], 20);
   }
   // gravity & velocity physics, on every frame multiply both the x, and y velocity by 0.9 which slowly drops them to zero
